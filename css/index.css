@@ -3,6 +3,7 @@
     --second-color: #F8DDAE;
     --font-main: 'Arial', sans-serif;
     --button-color: #FFEDCB;
+    --second-font-color: #241913;
 }
 
 
@@ -193,3 +194,26 @@ header {
     justify-content: flex-start;
     color: gray;
 }
+
+.achievements {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1.18ыfr 1fr;
+    max-width: 541px;
+    gap: 0px 34px;
+}
+
+.achievements div:nth-child(-n+3) {
+    font-size: 30px;
+    font-family: 'Benzin-Bold';
+    display: flex;
+    align-items: flex-end;
+}
+
+.achievements div:nth-last-child(-n+3) {
+    display: flex;
+    font-size: 12px;
+    color: var(--second-font-color);
+}
+
+
