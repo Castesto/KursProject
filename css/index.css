@@ -1,0 +1,152 @@
+:root {
+    --main-color: #EED198;
+    --second-color: #F8DDAE;
+    --font-main: 'Arial', sans-serif;
+}
+
+
+header {
+    height: auto;
+}
+
+
+.header1 {
+    padding-top: 50px;
+    display: flex;
+    height: 270px;
+    background-color: var(--main-color);
+    padding-left: 325px;
+    padding-right: 325px;
+}
+
+.leftHeader1 {
+    flex: 1004;
+    display: flex;
+    flex-direction: column;
+}
+
+.rightHeader1 {
+    display: flex;
+    flex-direction: column;
+    flex: 266;
+}
+
+.socialMedias {
+    flex: 1;
+    display: flex;
+    gap: 7px
+}
+
+.socialMedias>div {
+    flex: 1;
+    aspect-ratio: 1 / 1;
+    max-width: 59px;
+    max-height: 59px;
+    border: 1px black solid;
+    border-radius: 50%;
+    max-height: 59px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.telegram {
+    background-image: url('../images/Telegram.png');
+}
+
+.viber {
+    background-image: url('../images/whatsapp-128-svgrepo-com\ 2.png');
+}
+
+.avito {
+    background-image: url('../images/avito.png');
+}
+
+.gmail {
+    background-image: url('../images/gmail.png');
+}
+
+.phoneNumber {
+    flex: 1.8;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+.number {
+    border: 1px black solid;
+    border-radius: 20px;
+    height: 45px;
+    width: 195px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+}
+
+.menu {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    font-size: 16px;
+    gap: 26px;
+    margin-top: 112px;
+    color: #241913;
+}
+
+.menu div:nth-child(2) {
+    margin-top: -5px;
+    min-width: 100px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.firstLogo {
+    flex: 1;
+    font-family: 'Benzin-Bold';
+    color: #241913;
+    font-size: 80px;
+}
+
+.header2 {
+    display: grid;
+    grid-template-columns: 1004fr 416fr;
+    padding-left: 325px;
+    padding-right: 325px;
+    height: 402px;
+    background-color: var(--second-color);
+    position: relative;
+    overflow:visible;
+}
+
+.leftHeader2 {
+    position: relative;
+    z-index: 1;
+}
+
+.rigthHeader2 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.catDogWrapper {
+    position: absolute;
+    right: -120px; 
+    top: -40px;   
+    height: 115%;
+    display: flex;
+    align-items: flex-start;
+}
+
+.catDogImage {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.secondLogo {
+    flex: 1;
+    font-size: 80px;
+    font-family: 'Benzin-Bold';
+}

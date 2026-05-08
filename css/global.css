@@ -1,0 +1,39 @@
+
+@font-face {
+    font-family: 'Benzin';         
+    src: url('../fonts/Benzin-Regular.ttf') format('truetype'); 
+    font-weight: normal;               
+    font-style: normal;
+    font-display: swap;                
+}
+
+@font-face {
+    font-family: 'Benzin-bold';         
+    src: url('../fonts/benzin-bold.ttf') format('truetype'); 
+    font-weight: normal;               
+    font-style: normal;
+    font-display: swap;                
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: auto;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  font-family: 'Benzin', 'Arial', sans-serif;
+}
+
+.wrapper {
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
