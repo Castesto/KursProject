@@ -385,6 +385,7 @@ main {
 }
 
 .petsCard {
+    margin-top: -20px;
     display: flex;
     flex-direction: column;
     flex: 590;
@@ -517,4 +518,99 @@ main {
     margin-top: 12px;
     flex: 4;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+footer {
+    display: flex;
+    margin-top: 410px;
+    height: 380px;
+    font-size: 14px;
+    background-color: var(--second-color);
+    padding-top: 56px;
+    padding-left: 325px;
+    padding-right: 325px;
+}
+
+footer section:nth-child(1) {
+    display: flex;
+    flex: 410;
+    flex-direction: column;
+}
+
+.logoText {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.slogan {
+    font-weight: 30px;
+    margin-top: 40px;
+}
+
+.telegramAndWatsap div:nth-child(-n+2) {
+    max-width: 37px;
+    max-height: 35px;
+    background-repeat: no-repeat;
+}
+
+.telegramAndWatsap {
+    margin-top: 65px;
+    display: flex;
+    flex-direction: row;
+    gap: 26px;
+}
+
+footer section:nth-child(2) {
+    margin-top: 48px;
+    display: flex;
+    flex: 300;
+    flex-direction: column;
+}
+
+footer ul {
+    list-style: none;
+}
+
+footer li {
+    margin-bottom: 13px;
+}
+
+footer section:nth-child(3) {
+    margin-top: 48px;
+    display: flex;
+    flex: 230;
+    flex-direction: column;
+}
+
+footer section:nth-child(4) {
+    margin-top: 48px;
+    display: flex;
+    flex: 272;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.numberButton {
+    display: flex;
+    min-width: 200px;
+    min-height: 47px;
+    border: 1px solid black;
+    justify-content: center;
+    align-items: center;
+    margin-top: 13px;
+}
+
+.mailButton {
+    display: flex;
+    min-width: 200px;
+    min-height: 47px;
+    border: 1px solid black;
+    justify-content: center;
+    align-items: center;
+    margin-top: 12px;
+
+}
+
+.question {
+    margin-top: 12px;
 }
