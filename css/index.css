@@ -21,6 +21,14 @@ header {
     padding-right: 325px;
 }
 
+h2 {
+    font-family: 'Benzin-Bold';
+    color: #241913;
+    font-size: 60px;
+    margin:0;
+    padding: 0;
+}
+
 .leftHeader1 {
     flex: 1004;
     display: flex;
@@ -217,3 +225,132 @@ header {
 }
 
 
+main {
+    background-color: var(--main-color);
+    padding-left: 325px;
+    padding-right: 325px;
+    padding-top: 65px;
+}
+
+.photoAndInfoCenter {
+    display: grid;
+    grid-template-columns: 1.8fr 1fr;
+    grid-template-rows: 2fr 5.2fr 1fr;
+    gap: 37px 33px;
+}
+
+.photoAndInfoName {
+    display: flex;
+    font-family: 'Benzin-Bold';
+    font-size: 60px;
+    grid-column: span 2;
+    align-items: flex-end;
+}
+
+.photoCenter {
+    grid-row: span 2;
+    border-radius: 14px;
+    background-image: url('../images/centerPhoto.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    max-width: 800px;
+}
+
+.infoCenter {
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.centerButton {
+    display: flex;
+    max-width: 200px;
+    min-height: 62px;
+    background-color: var(--button-color);
+    align-items: center;
+    justify-content: center;
+}
+
+.switchImage {
+    display: flex;
+    height: 100%;
+    margin: -18px;
+    flex-direction: row;
+    gap: 8px;
+    justify-content: center;
+    align-self: start;
+}
+
+.switchImage div:nth-child(-n+3) {
+    height: 7px;
+    width: 77px;
+    border-radius: 83px;
+    background-color: var(--button-color);
+}
+
+.switchImage div:nth-child(-n+3):hover {
+    background-color: var(--second-color);
+}
+
+.departmentsText {
+    margin-top: 120px;
+}
+
+.departmentsBox {
+    margin-top: 33px;
+    display: flex;
+    flex-direction: row;
+    gap: 33px
+}
+
+.departmentLocation {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 14px;
+}
+
+.mainDepartment {
+    display: flex;
+    flex:1;
+    flex-direction: column;
+    background-color: var(--button-color);
+    max-height: 129px;
+    border-radius: 13px;
+    padding: 14px;
+    gap: 22px
+}
+
+.numberAndTime {
+    display: flex;
+    font-size: 11px;
+    gap: 62px
+}
+
+.departName {
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.adress {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.mapButtons {
+    display: flex;
+    flex-direction: row;
+    gap: 25px
+}
+
+.mapButtons div:nth-child(-n+2) {
+    display: flex;
+    flex: 1;
+    background-color: var(--button-color);
+    min-height: 45px;
+    border-radius: 13px;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: bold;
+}

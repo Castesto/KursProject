@@ -1,4 +1,13 @@
 
+:root {
+    --main-color: #EED198;
+    --second-color: #F8DDAE;
+    --font-main: 'Arial', sans-serif;
+    --button-color: #FFEDCB;
+    --second-font-color: #241913;
+}
+
+
 @font-face {
     font-family: 'Benzin';         
     src: url('../fonts/Benzin-Regular.ttf') format('truetype'); 
@@ -20,6 +29,7 @@ body {
     margin: 0;
     width: 100%;
     height: auto;
+    background-color: var(--main-color);
 }
 
 *, *::before, *::after {
