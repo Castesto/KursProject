@@ -354,3 +354,57 @@ main {
     font-size: 12px;
     font-weight: bold;
 }
+
+.history {
+    margin-top: 128px;
+}
+
+.historyBox {
+    display:flex;
+    flex-direction: row;
+    gap: 82px
+}
+
+.historyTextAndButton {
+    margin-top: 11px;
+    flex: 614;
+    max-width: 615px;
+    line-height: 32px;
+}
+
+.historyButton {
+    display: flex;
+    background-color: var(--button-color);
+    max-width: 200px;
+    height: 62px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.petsCard {
+    display: flex;
+    flex-direction: column;
+    flex:590;
+    padding-top: 7px;
+    padding-left: 40px;
+    min-width: 0;
+    max-width: 600;
+    background-color: var(--button-color);
+}
+
+.petsTitle {
+    font-size: 40px;
+}
+
+.petsText {
+    font-size: 14px;
+    margin-top: 8px;
+    line-height: 24px;
+    max-width: 391px;
+}
+
+.grayCatImage {
+    display: flex;
+    justify-content: flex-end;
+}
