@@ -25,7 +25,7 @@ h2 {
     font-family: 'Benzin-Bold';
     color: #241913;
     font-size: 60px;
-    margin:0;
+    margin: 0;
     padding: 0;
     max-width: 120px;
     line-height: 93px;
@@ -314,7 +314,7 @@ main {
 
 .mainDepartment {
     display: flex;
-    flex:1;
+    flex: 1;
     flex-direction: column;
     background-color: var(--button-color);
     max-height: 129px;
@@ -362,7 +362,7 @@ main {
 }
 
 .historyBox {
-    display:flex;
+    display: flex;
     flex-direction: row;
     gap: 82px
 }
@@ -387,7 +387,7 @@ main {
 .petsCard {
     display: flex;
     flex-direction: column;
-    flex:590;
+    flex: 590;
     padding-top: 7px;
     padding-left: 40px;
     min-width: 0;
@@ -432,12 +432,12 @@ main {
     height: 422px;
     border-radius: 19px;
     padding: 29px 12px 6px 29px;
-    
+
 }
 
 .titleAndPhoto {
     display: flex;
-    flex:1;
+    flex: 1;
     flex-direction: column;
     gap: 55px;
 }
@@ -450,17 +450,28 @@ main {
 
 .cardMore {
     display: flex;
-    flex: 1;    
+    flex: 1;
     justify-content: flex-end;
     align-items: flex-end;
+}
+
+.specialistsBox {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 47px;
 }
 
 .specialists {
     margin-top: 202px;
 }
 
+.specialistsBox .specialist:first-child {
+    transform: translateX(900px);
+}
+
 .moreSpecialistsButton {
     display: flex;
+    flex-direction: row;
     background-color: var(--button-color);
     font-size: 15px;
     width: 258px;
@@ -471,9 +482,39 @@ main {
 }
 
 .specialist {
+    position: absolute;
     background-color: var(--button-color);
     border-radius: 22px;
-    width: 853px;
+    max-width: 853px;
     height: 207px;
     margin-top: 81px;
-    }
+    display: flex;
+    padding-left: 35px;
+    padding-top: 46px;
+    padding-right: 40px;
+}
+
+.photo {
+    flex: 1.07;
+}
+
+.nameAndDescription {
+    display: flex;
+    flex-direction: column;
+    flex: 4;
+}
+
+.specialistName {
+    flex: 1;
+    margin-top: -2px;
+    font-size: 35px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1;
+}
+
+.specialistDescription {
+    margin-top: 12px;
+    flex: 4;
+    font-family: Arial, Helvetica, sans-serif;
+}
