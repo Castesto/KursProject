@@ -27,6 +27,8 @@ h2 {
     font-size: 60px;
     margin:0;
     padding: 0;
+    max-width: 120px;
+    line-height: 93px;
 }
 
 .leftHeader1 {
@@ -229,7 +231,7 @@ main {
     background-color: var(--main-color);
     padding-left: 325px;
     padding-right: 325px;
-    padding-top: 65px;
+    padding-top: 70px;
 }
 
 .photoAndInfoCenter {
@@ -293,7 +295,7 @@ main {
 }
 
 .departmentsText {
-    margin-top: 120px;
+    margin-top: 115px;
 }
 
 .departmentsBox {
@@ -356,7 +358,7 @@ main {
 }
 
 .history {
-    margin-top: 128px;
+    margin-top: 115px;
 }
 
 .historyBox {
@@ -366,7 +368,7 @@ main {
 }
 
 .historyTextAndButton {
-    margin-top: 11px;
+    margin-top: 3px;
     flex: 614;
     max-width: 615px;
     line-height: 32px;
@@ -406,5 +408,72 @@ main {
 
 .grayCatImage {
     display: flex;
+    height: 100%;
     justify-content: flex-end;
+    align-items: flex-end;
 }
+
+.services {
+    margin-top: 105px;
+}
+
+.servicesCards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 21px;
+    margin-top: 41px;
+
+}
+
+.card {
+    display: flex;
+    background-color: var(--button-color);
+    max-height: 422px;
+    height: 422px;
+    border-radius: 19px;
+    padding: 29px 12px 6px 29px;
+    
+}
+
+.titleAndPhoto {
+    display: flex;
+    flex:1;
+    flex-direction: column;
+    gap: 55px;
+}
+
+.cardTitle {
+    flex: 2;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.cardMore {
+    display: flex;
+    flex: 1;    
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.specialists {
+    margin-top: 202px;
+}
+
+.moreSpecialistsButton {
+    display: flex;
+    background-color: var(--button-color);
+    font-size: 15px;
+    width: 258px;
+    height: 62px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 22px;
+}
+
+.specialist {
+    background-color: var(--button-color);
+    border-radius: 22px;
+    width: 853px;
+    height: 207px;
+    margin-top: 81px;
+    }
