@@ -19,6 +19,16 @@ header {
     background-color: var(--main-color);
     padding-left: 325px;
     padding-right: 325px;
+    text-decoration: none;
+}
+
+.header1 a {
+    all: unset;
+    cursor: default;
+}
+
+.menu a:hover {
+    color: gray;
 }
 
 h2 {
@@ -105,7 +115,7 @@ h2 {
     color: #241913;
 }
 
-.menu div:nth-child(2) {
+.menu div:nth-child(3) {
     margin-top: -5px;
     min-width: 100px;
     font-size: 20px;
@@ -316,6 +326,7 @@ main {
     flex-direction: column;
     background-color: var(--button-color);
     max-height: 129px;
+    overflow: hidden;
     border-radius: 13px;
     padding: 14px;
     gap: 22px
@@ -613,4 +624,51 @@ footer section:nth-child(4) {
 
 .question {
     margin-top: 12px;
+}
+
+@media (max-width: 1919px) {
+    .departmentsBox {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .departmentLocation {
+        width: 800px;
+    }
+
+    .departmentsText {
+        display: block;
+        max-width: none;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .numberAndTime {
+        display: none;
+    }
+
+    .mainDepartment {
+        align-items: center;
+    }
+
+    .servicesCards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .photoAndInfoName {
+        grid-column: span 2;
+        justify-content: center; 
+    }
+    
+}
+
+@media (max-width: 1530px) {
+    .socialMedias {
+        display:none;
+    }
+
+    .number {
+        display: none;
+    }
 }
