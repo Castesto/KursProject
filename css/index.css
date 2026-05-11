@@ -143,10 +143,8 @@ h2 {
 
 .catDogWrapper {
     position: absolute;
-    right: -120px;
-    top: -40px;
-    height: 115%;
     display: flex;
+    transform: translateY(-37px);
     align-items: flex-start;
 }
 
@@ -464,6 +462,8 @@ main {
 
 .specialists {
     margin-top: 202px;
+    overflow: hidden;
+
 }
 
 .specialistsBox .specialist:first-child {
