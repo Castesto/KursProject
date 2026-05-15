@@ -1,0 +1,70 @@
+:root {
+    --main-color: #EED198;
+    --second-color: #F8DDAE;
+    --font-main: 'Arial', sans-serif;
+    --button-color: #FFEDCB;
+    --second-font-color: #241913;
+    --font-color: #90733A;
+}
+
+
+.titleContacts {
+    display: block;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.titleContacts h2 {
+    max-width: 100%;         
+    word-break: break-word; 
+    overflow-wrap: break-word;
+    margin: 0;             
+}
+
+.contacts {
+    margin-top: 40px;
+    max-width: 703px;
+    display: flex;
+    flex-direction: row;
+    gap: 22px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.contacts>div {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+
+}
+
+.contacts>div>div {
+    background-color: var(--second-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--font-color);
+}
+
+.logo {
+    display: flex;
+    flex: 5;
+    width: 153px;
+    height: 147px;
+    border-radius: 20px;
+    padding: 44px;
+}
+
+.socialMedia {
+    display: flex;
+}
+
+.contacts .socialMedia > div:not(.logo) {
+    border-radius: 15px;
+    flex: 3;
+}
