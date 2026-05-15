@@ -469,12 +469,12 @@ main {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 47px;
+    position: relative;
+    margin-top: 84px;
 }
 
 .specialists {
     margin-top: 202px;
-    overflow: hidden;
-
 }
 
 .specialistsBox .specialist:first-child {
@@ -499,7 +499,6 @@ main {
     border-radius: 22px;
     max-width: 853px;
     height: 207px;
-    margin-top: 81px;
     display: flex;
     padding-left: 35px;
     padding-top: 46px;
@@ -627,22 +626,22 @@ footer section:nth-child(4) {
 }
 
 @media (max-width: 1919px) {
-    .departmentsBox {
+    /* .departmentsBox {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-    }
+    } */
 
     .departmentLocation {
         width: 800px;
     }
 
-    .departmentsText {
+    /* .departmentsText {
         display: block;
         max-width: none;
         margin: 0 auto;
         text-align: center;
-    }
+    } */
 
     .numberAndTime {
         display: none;
@@ -656,14 +655,14 @@ footer section:nth-child(4) {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .photoAndInfoName {
+    /* .photoAndInfoName {
         grid-column: span 2;
         justify-content: center; 
-    }
+    } */
     
 }
 
-@media (max-width: 1530px) {
+@media (max-width: 1600px) {
     .socialMedias {
         display:none;
     }
@@ -671,4 +670,10 @@ footer section:nth-child(4) {
     .number {
         display: none;
     }
+
+    main {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 }
+

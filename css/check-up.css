@@ -64,3 +64,10 @@ h2 {
     display: flex;
     justify-content: flex-end;
 }
+
+@media (max-width: 1600px) {
+    .checkupCardsBox {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}

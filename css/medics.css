@@ -1,0 +1,40 @@
+:root {
+    --main-color: #EED198;
+    --second-color: #F8DDAE;
+    --font-main: 'Arial', sans-serif;
+    --button-color: #FFEDCB;
+    --second-font-color: #241913;
+    --price-color: #FF3850;
+}
+
+.menu div:nth-child(2) {
+    margin-top: -5px;
+    min-width: 100px;
+    font-size: 20px;
+    font-weight: 100;
+}
+
+.menu div:nth-child(5) {
+    margin-top: -5px;
+    min-width: 100px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+.checkUpTitle {
+    display: block;
+    min-width: 85%;
+}
+
+.specialistsBox .specialist:first-child {
+    transform: none;
+}
+
+.specialist {
+    position: static;
+}
+
+.photo {
+    flex: 2;
+}
