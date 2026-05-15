@@ -71,6 +71,17 @@ h2 {
     background-position: center;
 }
 
+.socialMedias > div {
+    position: relative;
+}
+.socialMedias > div a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
 .telegram {
     background-image: url('../images/Telegram.png');
 }
@@ -466,11 +477,12 @@ main {
 }
 
 .specialistsBox {
+    margin-top: 84px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 47px;
     position: relative;
-    margin-top: 84px;
+  
 }
 
 .specialists {
