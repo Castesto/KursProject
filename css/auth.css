@@ -139,3 +139,26 @@
     max-width: 450px;
     padding: 30px 25px;
 }
+
+.cart-icon {
+    display: flex;
+    justify-content: flex-end;
+    margin: 5px 0 10px 0;
+}
+.cart-icon a {
+    display: inline-block;
+    font-size: 28px;
+    text-decoration: none;
+    color: #241913;
+    background: var(--button-color);
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    border-radius: 50%;
+    transition: 0.2s;
+}
+.cart-icon a:hover {
+    background: #e7d4b0;
+    transform: scale(1.05);
+}

@@ -16,7 +16,7 @@ async function renderServices() {
                 <div class="cardPhoto"><img src="${service.img}" alt=""></div>
             </div>
             <div class="cardMore">
-                <a href="${service.ref}">
+                <a href="service-detail.html?id=${service.id}">
                     <img src="images/moreButton.png" alt="Подробнее">
                 </a>
             </div>

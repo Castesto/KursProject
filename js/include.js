@@ -55,3 +55,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         console.error('Ошибка загрузки подвала:', err);
     }
 });
+
+if (typeof updateAuthUI === 'function') {
+    updateAuthUI();
+}
