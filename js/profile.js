@@ -39,6 +39,7 @@ async function loadProfile() {
         await loadUsers();
         await loadServicesAdmin();
         await loadCheckupsAdmin();
+        await loadDoctorsAdmin();
     } else {
         container.innerHTML = `
             <h2>Мой профиль</h2>
@@ -195,6 +196,63 @@ async function loadUsers() {
             `).join('')}
         </table>
     `;
+}
+
+async function loadDoctorsAdmin() {
+    const res = await fetch(`${API_URL}/doctors`);
+    const doctors = await res.json();
+    const container = document.getElementById('doctorsAdminList');
+    if (!container) return;
+    container.innerHTML = `
+        <h4>Врачи</h4>
+        <table class="admin-table">
+            <tr><th>Имя</th><th>Должность</th><th>Действия</th></tr>
+            ${doctors.map(d => `
+                <tr>
+                    <td>${d.name}</td>
+                    <td>${d.position}</td>
+                    <td><button class="delete-doctor" data-id="${d.id}">Удалить</button></td>
+                </tr>
+            `).join('')}
+        </table>
+        <h5>Добавить врача</h5>
+        <form id="addDoctorForm">
+            <input type="text" id="doctorName" placeholder="ФИО" required>
+            <input type="text" id="doctorPosition" placeholder="Должность" required>
+            <input type="text" id="doctorPhoto" placeholder="Путь к фото" value="images/">
+            <button type="submit">Добавить</button>
+        </form>
+    `;
+    document.querySelectorAll('.delete-doctor').forEach(btn => {
+        btn.onclick = () => deleteDoctor(btn.dataset.id);
+    });
+    document.getElementById('addDoctorForm')?.addEventListener('submit', addDoctor);
+}
+
+async function addDoctor(e) {
+    e.preventDefault();
+    const newDoctor = {
+        name: document.getElementById('doctorName').value,
+        position: document.getElementById('doctorPosition').value,
+        photo: document.getElementById('doctorPhoto').value
+    };
+    const res = await fetch(`${API_URL}/doctors`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newDoctor)
+    });
+    if (res.ok) {
+        showNotification('Врач добавлен', 'success');
+        loadDoctorsAdmin();
+    } else showNotification('Ошибка', 'error');
+}
+
+async function deleteDoctor(id) {
+    const res = await fetch(`${API_URL}/doctors/${id}`, { method: 'DELETE' });
+    if (res.ok) {
+        showNotification('Врач удалён', 'success');
+        loadDoctorsAdmin();
+    } else showNotification('Ошибка', 'error');
 }
 
 document.addEventListener('DOMContentLoaded', loadProfile);
