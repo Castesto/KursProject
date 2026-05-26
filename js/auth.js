@@ -134,6 +134,55 @@ function initAuthPages() {
     }
 }
 
+function updateAuthUI() {
+    const currentUser = getCurrentUser();
+    const authButtons = document.querySelector('.authButtons');
+    const userInfo = document.querySelector('.userInfo');
+    const usernameSpan = document.getElementById('authUsername');
+
+    if (currentUser) {
+        if (authButtons) authButtons.style.display = 'none';
+        if (userInfo) {
+            userInfo.style.display = 'flex';
+            if (usernameSpan) usernameSpan.textContent = currentUser.username;
+        }
+        const logoutBtn = document.getElementById('authLogoutBtn');
+        if (logoutBtn) logoutBtn.onclick = () => logout();
+    } else {
+        if (authButtons) authButtons.style.display = 'flex';
+        if (userInfo) userInfo.style.display = 'none';
+    }
+
+    const mobileAuth = document.querySelector('.mobile-auth');
+    if (mobileAuth) {
+        const originalAuthButtons = document.querySelector('.authButtons');
+        const originalUserInfo = document.querySelector('.userInfo');
+        if (currentUser && originalUserInfo) {
+            const clone = originalUserInfo.cloneNode(true);
+            clone.querySelector('#authLogoutBtn')?.addEventListener('click', logout);
+            mobileAuth.innerHTML = '';
+            mobileAuth.appendChild(clone);
+        } else if (originalAuthButtons) {
+            mobileAuth.innerHTML = originalAuthButtons.cloneNode(true);
+        }
+    }
+
+    const mobileContacts = document.querySelector('.mobile-contacts');
+    if (mobileContacts) {
+        const phone = document.querySelector('.phoneNumber .number');
+        const cart = document.querySelector('.cart-icon');
+        mobileContacts.innerHTML = '';
+        if (phone) mobileContacts.appendChild(phone.cloneNode(true));
+        if (cart) mobileContacts.appendChild(cart.cloneNode(true));
+    }
+
+    const mobileSocial = document.querySelector('.mobile-social');
+    if (mobileSocial) {
+        const originalSocial = document.querySelector('.socialMedias');
+        if (originalSocial) mobileSocial.innerHTML = originalSocial.innerHTML;
+    }
+}
+
 if (window.location.pathname.includes('login.html') || window.location.pathname.includes('register.html')) {
     document.addEventListener('DOMContentLoaded', initAuthPages);
 }
