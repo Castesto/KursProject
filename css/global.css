@@ -48,3 +48,6 @@ html, body {
     overflow-x: hidden;
 }
 
+.menu .active {
+    font-weight: bold;
+}
