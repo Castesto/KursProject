@@ -63,6 +63,8 @@ h2 {
 .petPriceImage {
     display: flex;
     justify-content: flex-end;
+    align-items: flex-end;
+    flex: 4;
 }
 
 @media (max-width: 1600px) {

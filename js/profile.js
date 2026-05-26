@@ -24,13 +24,21 @@ async function loadProfile() {
 
     if (user.isAdmin) {
         container.innerHTML = `
-            <h2>Админ-панель</h2>
-            <div class="admin-section">
-                <h3>Управление пользователями</h3>
-                <div id="usersList"></div>
-            </div>
-        `;
+        <h2>Админ-панель</h2>
+        <div class="admin-section">
+            <h3>Управление пользователями</h3>
+            <div id="usersList"></div>
+        </div>
+        <div class="admin-section">
+            <div id="servicesAdminList"></div>
+        </div>
+        <div class="admin-section">
+            <div id="checkupsAdminList"></div>
+        </div>
+    `;
         await loadUsers();
+        await loadServicesAdmin();
+        await loadCheckupsAdmin();
     } else {
         container.innerHTML = `
             <h2>Мой профиль</h2>
@@ -48,6 +56,145 @@ async function loadProfile() {
         const form = document.getElementById('profileForm');
         if (form) form.addEventListener('submit', updateProfile);
     }
+}
+
+async function loadServicesAdmin() {
+    const res = await fetch(`${API_URL}/services`);
+    const services = await res.json();
+    const container = document.getElementById('servicesAdminList');
+    if (!container) return;
+    container.innerHTML = `
+        <h4>Услуги</h4>
+        <table class="admin-table">
+            <tr><th>Название</th><th>Цена</th><th>Действия</th></tr>
+            ${services.map(s => `
+                <tr>
+                    <td>${s.title}</td>
+                    <td>${s.price} ₽</td>
+                    <td><button class="delete-service" data-id="${s.id}">Удалить</button></td>
+                </tr>
+            `).join('')}
+        </table>
+        <h5>Добавить услугу</h5>
+        <form id="addServiceForm">
+            <input type="text" id="serviceTitle" placeholder="Название" required>
+            <input type="text" id="serviceImg" placeholder="Путь к картинке" value="images/">
+            <input type="text" id="serviceDesc" placeholder="Описание">
+            <input type="number" id="servicePrice" placeholder="Цена" required>
+            <button type="submit">Добавить</button>
+        </form>
+    `;
+    document.querySelectorAll('.delete-service').forEach(btn => {
+        btn.onclick = () => deleteService(btn.dataset.id);
+    });
+    document.getElementById('addServiceForm')?.addEventListener('submit', addService);
+}
+
+async function addService(e) {
+    e.preventDefault();
+    const newService = {
+        title: document.getElementById('serviceTitle').value,
+        img: document.getElementById('serviceImg').value,
+        description: document.getElementById('serviceDesc').value,
+        price: Number(document.getElementById('servicePrice').value),
+        animalImg: document.getElementById('serviceImg').value,
+        ref: 'service-detail.html'
+    };
+    const res = await fetch(`${API_URL}/services`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newService)
+    });
+    if (res.ok) {
+        showNotification('Услуга добавлена', 'success');
+        loadServicesAdmin();
+    } else showNotification('Ошибка', 'error');
+}
+
+async function deleteService(id) {
+    const res = await fetch(`${API_URL}/services/${id}`, { method: 'DELETE' });
+    if (res.ok) {
+        showNotification('Услуга удалена', 'success');
+        loadServicesAdmin();
+    } else showNotification('Ошибка', 'error');
+}
+
+async function loadCheckupsAdmin() {
+    const res = await fetch(`${API_URL}/checkups`);
+    const checkups = await res.json();
+    const container = document.getElementById('checkupsAdminList');
+    if (!container) return;
+    container.innerHTML = `
+        <h4>Чек-ап</h4>
+        <table class="admin-table">
+            <tr><th>Название</th><th>Цена</th><th>Действия</th></tr>
+            ${checkups.map(c => `
+                <tr>
+                    <td>${c.title}</td>
+                    <td>${c.price} ₽</td>
+                    <td><button class="delete-checkup" data-id="${c.id}">Удалить</button></td>
+                </tr>
+            `).join('')}
+        </table>
+        <h5>Добавить чек-ап</h5>
+        <form id="addCheckupForm">
+            <input type="text" id="checkupTitle" placeholder="Название" required>
+            <input type="text" id="checkupDesc" placeholder="Описание">
+            <input type="number" id="checkupPrice" placeholder="Цена" required>
+            <input type="text" id="checkupImg" placeholder="Путь к картинке" value="images/хомяк.png">
+            <button type="submit">Добавить</button>
+        </form>
+    `;
+    document.querySelectorAll('.delete-checkup').forEach(btn => {
+        btn.onclick = () => deleteCheckup(btn.dataset.id);
+    });
+    document.getElementById('addCheckupForm')?.addEventListener('submit', addCheckup);
+}
+
+async function addCheckup(e) {
+    e.preventDefault();
+    const newCheckup = {
+        title: document.getElementById('checkupTitle').value,
+        description: document.getElementById('checkupDesc').value,
+        price: Number(document.getElementById('checkupPrice').value),
+        img: document.getElementById('checkupImg').value
+    };
+    const res = await fetch(`${API_URL}/checkups`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newCheckup)
+    });
+    if (res.ok) {
+        showNotification('Чек-ап добавлен', 'success');
+        loadCheckupsAdmin();
+    } else showNotification('Ошибка', 'error');
+}
+
+async function deleteCheckup(id) {
+    const res = await fetch(`${API_URL}/checkups/${id}`, { method: 'DELETE' });
+    if (res.ok) {
+        showNotification('Чек-ап удалён', 'success');
+        loadCheckupsAdmin();
+    } else showNotification('Ошибка', 'error');
+}
+
+async function loadUsers() {
+    const res = await fetch(`${API_URL}/users`);
+    const users = await res.json();
+    const container = document.getElementById('usersList');
+    if (!container) return;
+    container.innerHTML = `
+        <table class="admin-table">
+            <tr><th>Логин</th><th>Email</th><th>Роль</th></tr>
+            ${users.map(u => `
+                <tr>
+                    <td>${u.username}</td>
+                    <td>${u.email || ''}</td>
+                    <td>${u.isAdmin ? 'Админ' : 'Пользователь'}</td>
+                </tr>
+            `).join('')}
+        </table>
+    `;
 }
 
 document.addEventListener('DOMContentLoaded', loadProfile);
