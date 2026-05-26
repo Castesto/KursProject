@@ -637,23 +637,47 @@ footer section:nth-child(4) {
     margin-top: 12px;
 }
 
+.rightHeader1 {
+    min-width: 200px; 
+}
+
+.socialMedias {
+    flex-wrap: wrap;      
+    justify-content: flex-end;
+    gap: 7px;
+}
+
+.socialMedias > div {
+    flex: 0 0 auto;       
+    width: 59px;
+    height: 59px;
+}
+
+.phoneNumber {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.number {
+    white-space: nowrap;
+}
+
+@media (max-width: 1200px) {
+    .socialMedias > div {
+        width: 45px;
+        height: 45px;
+        background-size: 60%;
+    }
+
+    
+}
+
 @media (max-width: 1919px) {
-    /* .departmentsBox {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    } */
 
     .departmentLocation {
         width: 800px;
     }
 
-    /* .departmentsText {
-        display: block;
-        max-width: none;
-        margin: 0 auto;
-        text-align: center;
-    } */
 
     .numberAndTime {
         display: none;
