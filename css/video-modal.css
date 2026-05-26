@@ -53,6 +53,10 @@
     transform: scale(1.1);
 }
 
+.play {
+    cursor: pointer;
+}
+
 @media (max-width: 768px) {
     .video-modal-container {
         width: 95%;

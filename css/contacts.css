@@ -68,3 +68,34 @@
     border-radius: 15px;
     flex: 3;
 }
+
+.socialMedia {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+.socialMedia:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.socialMedia:active {
+    transform: translateY(1px);
+    transition: 0.05s;
+}
+
+.socialMedia .logo {
+    transition: background-color 0.2s ease;
+}
+
+.socialMedia:hover .logo {
+    background-color: #ffe0b5;
+}
+
+.socialMedia div:last-child {
+    transition: color 0.2s ease;
+}
+
+.socialMedia:hover div:last-child {
+    color: #b87c2e;
+}
