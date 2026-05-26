@@ -682,6 +682,10 @@ footer section:nth-child(4) {
     border-radius: 14px;
 }
 
+.historyButton {
+    cursor: pointer;
+}
+
 @media (max-width: 1200px) {
     .socialMedias > div {
         width: 45px;
