@@ -1,15 +1,21 @@
+let allServices = [];
+
 async function getServices() {
     const response = await fetch('bd.json');
     const data = await response.json();
-    return data.services;
+    allServices = data.services;
+    return allServices;
 }
 
-async function renderServices() {
-    const services = await getServices();
+function renderServices(filterText = '') {
     const container = document.querySelector('.servicesCards');
     if (!container) return;
-
-    container.innerHTML = services.map(service => `
+    const lowerFilter = filterText.toLowerCase();
+    const filtered = allServices.filter(service => 
+        service.title.toLowerCase().includes(lowerFilter) || 
+        (service.description && service.description.toLowerCase().includes(lowerFilter))
+    );
+    container.innerHTML = filtered.map(service => `
         <div class="card">
             <div class="titleAndPhoto">
                 <div class="cardTitle">${service.title}</div>
@@ -24,4 +30,15 @@ async function renderServices() {
     `).join('');
 }
 
-renderServices();
+async function initServices() {
+    await getServices();
+    renderServices();
+    const searchInput = document.getElementById('serviceSearch');
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            renderServices(e.target.value);
+        });
+    }
+}
+
+initServices();
