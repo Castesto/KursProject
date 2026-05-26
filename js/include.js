@@ -1,9 +1,9 @@
-document.addEventListener('DOMContentLoaded', async function() {
+document.addEventListener('DOMContentLoaded', async function () {
     try {
         const headerResponse = await fetch('components/header.html');
         const headerHtml = await headerResponse.text();
         document.querySelector('header').innerHTML = headerHtml;
-        
+
         const currentPath = window.location.pathname.split('/').pop() || 'index.html';
         const menuLinks = document.querySelectorAll('.menu a');
         menuLinks.forEach(link => {
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     } catch (err) {
         console.error('Ошибка загрузки шапки:', err);
     }
-    
+
     try {
         const footerResponse = await fetch('components/footer.html');
         const footerHtml = await footerResponse.text();
@@ -25,12 +25,12 @@ document.addEventListener('DOMContentLoaded', async function() {
     }
 });
 
-document.addEventListener('DOMContentLoaded', async function() {
+document.addEventListener('DOMContentLoaded', async function () {
     try {
         const headerResponse = await fetch('components/header.html');
         const headerHtml = await headerResponse.text();
         document.querySelector('header').innerHTML = headerHtml;
-        
+
         const currentPath = window.location.pathname.split('/').pop() || 'index.html';
         const menuLinks = document.querySelectorAll('.menu a');
         menuLinks.forEach(link => {
@@ -39,14 +39,14 @@ document.addEventListener('DOMContentLoaded', async function() {
                 link.parentElement.classList.add('active');
             }
         });
-        
+
         if (typeof updateAuthUI === 'function') {
             updateAuthUI();
         }
     } catch (err) {
         console.error('Ошибка загрузки шапки:', err);
     }
-    
+
     try {
         const footerResponse = await fetch('components/footer.html');
         const footerHtml = await footerResponse.text();
@@ -67,7 +67,7 @@ if (appointmentBtn) {
     });
 }
 
-document.addEventListener('DOMContentLoaded', async function() {
+document.addEventListener('DOMContentLoaded', async function () {
     try {
         const headerResponse = await fetch('components/header.html');
         const headerHtml = await headerResponse.text();
@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     }
 });
 
-document.addEventListener('DOMContentLoaded', async function() {
+document.addEventListener('DOMContentLoaded', async function () {
     try {
         const headerResponse = await fetch('components/header.html');
         const headerHtml = await headerResponse.text();
@@ -151,4 +151,10 @@ document.addEventListener('DOMContentLoaded', async function() {
     } catch (err) {
         console.error('Ошибка загрузки подвала:', err);
     }
+
+    if (typeof window.initVideoModal === 'function') {
+        window.initVideoModal();
+    }
 });
+
+
