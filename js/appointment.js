@@ -1,5 +1,3 @@
-const API_URL = 'http://localhost:3000';
-
 function fillUserData() {
     const user = getCurrentUser();
     if (user) {
@@ -9,20 +7,34 @@ function fillUserData() {
     }
 }
 
+async function loadDoctors() {
+    try {
+        const res = await fetch(`${API_URL}/doctors`);
+        const doctors = await res.json();
+        const select = document.getElementById('appDoctor');
+        if (!select) return;
+        select.innerHTML = '<option value="">Выберите врача</option>' + 
+            doctors.map(doc => `<option value="${doc.id}">${doc.name}</option>`).join('');
+    } catch (err) {
+        console.error('Ошибка загрузки врачей:', err);
+    }
+}
+
 async function submitAppointment(event) {
     event.preventDefault();
     const firstName = document.getElementById('appFirstName').value.trim();
     const lastName = document.getElementById('appLastName').value.trim();
     const phone = document.getElementById('appPhone').value.trim();
     const dateTime = document.getElementById('appDateTime').value;
+    const doctorId = document.getElementById('appDoctor').value;
 
-    if (!firstName || !lastName || !phone || !dateTime) {
+    if (!firstName || !lastName || !phone || !dateTime || !doctorId) {
         showNotification('Заполните все поля', 'error');
         return;
     }
 
     const appointment = {
-        firstName, lastName, phone, dateTime,
+        firstName, lastName, phone, dateTime, doctorId,
         createdAt: new Date().toISOString(),
         userId: getCurrentUser()?.id || null
     };
@@ -36,7 +48,8 @@ async function submitAppointment(event) {
         if (res.ok) {
             showNotification('Вы успешно записаны!', 'success');
             document.getElementById('appointmentForm').reset();
-            fillUserData(); 
+            fillUserData();
+            loadDoctors();
         } else {
             showNotification('Ошибка сервера', 'error');
         }
@@ -47,6 +60,7 @@ async function submitAppointment(event) {
 
 document.addEventListener('DOMContentLoaded', () => {
     fillUserData();
+    loadDoctors();
     const form = document.getElementById('appointmentForm');
     if (form) form.addEventListener('submit', submitAppointment);
 });

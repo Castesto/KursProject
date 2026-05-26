@@ -35,6 +35,9 @@ async function loadProfile() {
         <div class="admin-section">
             <div id="checkupsAdminList"></div>
         </div>
+        <div class="admin-section">
+            <div id="doctorsAdminList"></div>
+        </div>
     `;
         await loadUsers();
         await loadServicesAdmin();

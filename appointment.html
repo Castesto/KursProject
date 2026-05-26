@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
     <link rel="stylesheet" href="css/notifications.css">
     <title>Запись на приём</title>
 </head>
+
 <body>
     <header></header>
     <main class="appointment-main">
@@ -29,6 +31,12 @@
                     <input type="tel" id="appPhone" required>
                 </div>
                 <div class="form-group">
+                    <label>Врач *</label>
+                    <select id="appDoctor" required>
+                        <option value="">Выберите врача</option>
+                    </select>
+                </div>
+                <div class="form-group">
                     <label>Желаемое время *</label>
                     <input type="datetime-local" id="appDateTime" required>
                 </div>
@@ -42,4 +50,5 @@
     <script src="js/appointment.js"></script>
     <script src="js/notifications.js"></script>
 </body>
+
 </html>
