@@ -1,40 +1,73 @@
 {
-    "services": [
-        {
-            "id": 1,
-            "title": "Приём и консультация",
-            "img": "images/dogs-labrador 1.png",
-            "ref": "consultation.html"
-        },
-        {
-            "id": 2,
-            "title": "Вакцинация",
-            "img": "images/vactinaniton.png",
-            "ref": "vantination.html"
-        },
-
-        {
-            "id": 3,
-            "title": "Хирургия",
-            "img": "images/hirurgia.png",
-            "ref": "surgery.html"
-
-        },
-
-        {
-            "id": 4,
-            "title": "Кастрация и стерилизация",
-            "img": "images/castration.png",
-            "ref": "castration.html"
-        },
-
-        {
-            "id": 5,
-            "title": "Стационар",
-            "img": "images/stationar.png",
-            "ref": "stacionar"
-        }
-
-    ]
-  
+  "services": [
+    {
+      "id": "1",
+      "title": "Приём и консультация",
+      "img": "images/dogs-labrador 1.png",
+      "ref": "consultation.html"
+    },
+    {
+      "id": "2",
+      "title": "Вакцинация",
+      "img": "images/vactinaniton.png",
+      "ref": "vantination.html"
+    },
+    {
+      "id": "3",
+      "title": "Хирургия",
+      "img": "images/hirurgia.png",
+      "ref": "surgery.html"
+    },
+    {
+      "id": "4",
+      "title": "Кастрация и стерилизация",
+      "img": "images/castration.png",
+      "ref": "castration.html"
+    },
+    {
+      "id": "5",
+      "title": "Стационар",
+      "img": "images/stationar.png",
+      "ref": "stacionar"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "admin123",
+      "firstName": "Админ",
+      "lastName": "Админов",
+      "patronymic": "Админович",
+      "email": "admin@vet.ru",
+      "phone": "+79990000000",
+      "isAdmin": true,
+      "purchaseHistory": []
+    },
+    {
+      "username": "Castesto",
+      "password": "123",
+      "firstName": "Виктор",
+      "lastName": "Такой",
+      "patronymic": "Сякой",
+      "email": "dsfj@gmail.com",
+      "phone": "+3374340990",
+      "isAdmin": false,
+      "purchaseHistory": [],
+      "id": "g1LrCRv0aGY"
+    },
+    {
+      "username": "Castesto",
+      "password": "123",
+      "firstName": "Виктор",
+      "lastName": "Такой",
+      "patronymic": "Сякой",
+      "email": "dsfj@gmail.com",
+      "phone": "+3374340990",
+      "isAdmin": false,
+      "purchaseHistory": [],
+      "id": "OT-kAzfvZss"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
