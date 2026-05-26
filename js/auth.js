@@ -50,6 +50,7 @@ async function login(username, password) {
         isAdmin: user.isAdmin,
         firstName: user.firstName,
         lastName: user.lastName,
+        patronymic: user.patronymic,
         email: user.email,
         phone: user.phone
     });
