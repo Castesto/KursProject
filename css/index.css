@@ -273,11 +273,11 @@ main {
 .photoCenter {
     grid-row: span 2;
     border-radius: 14px;
-    background-image: url('../images/centerPhoto.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     max-width: 800px;
+    max-height: 500px;
 }
 
 .infoCenter {
