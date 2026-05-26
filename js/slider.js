@@ -6,7 +6,8 @@ function initPhotoSlider() {
         'images/centerPhoto.png',
         'images/Дизайн-мед-центра-ресепшн.jpg',
         'images/медцентрz.jpg',
-        'images/imred_033-1024x683.jpg'
+        'images/imred_033-1024x683.jpg',
+        'images/ветклиника.jpg'
     ];
 
     photoCenter.innerHTML = `
