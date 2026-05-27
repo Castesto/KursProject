@@ -505,6 +505,7 @@ main {
     justify-content: center;
     align-items: center;
     margin-top: 22px;
+    cursor: pointer;
 }
 
 .specialist {
@@ -685,6 +686,15 @@ footer section:nth-child(4) {
 .historyButton {
     cursor: pointer;
 }
+
+.yandexMap {
+    cursor: pointer;
+}
+
+.gisMap {
+    cursor: pointer;
+}
+
 
 @media (max-width: 1200px) {
     .socialMedias > div {
