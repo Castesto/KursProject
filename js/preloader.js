@@ -32,8 +32,29 @@
     preloader.innerHTML = '<div class="spinner"></div>';
     document.body.appendChild(preloader);
 
-    window.addEventListener('load', function() {
-        const el = document.getElementById('preloader');
-        if (el) el.remove();
+    function removePreloader(){
+        try{
+            const el = document.getElementById('preloader');
+            if (el) el.remove();
+        }catch(e){console.error('removePreloader error', e)}
+    }
+
+    // expose for other scripts to remove preloader when app is ready
+    try{ window.removePreloader = removePreloader; }catch(e){/* noop */}
+
+    // normal removal on full load
+    window.addEventListener('load', removePreloader);
+
+    // if document is already loaded
+    if(document.readyState === 'complete'){
+        removePreloader();
+    }
+
+    // also remove after DOMContentLoaded as a fallback when load never fires
+    document.addEventListener('DOMContentLoaded', function(){
+        setTimeout(removePreloader, 500);
     });
+
+    // final safety: remove after 5 seconds to avoid permanent spinner
+    setTimeout(removePreloader, 5000);
 })();

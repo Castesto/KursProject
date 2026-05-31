@@ -20,11 +20,11 @@
     <header></header>
     <main class="auth-main">
         <div class="auth-container">
-            <h2>Вход</h2>
+            <h2 data-i18n="login.title">Вход</h2>
             <form id="loginForm">
-                <input type="text" id="loginUsername" placeholder="Логин" required>
-                <input type="password" id="loginPassword" placeholder="Пароль" required>
-                <button type="submit">Войти</button>
+                <input type="text" id="loginUsername" placeholder="Логин" data-i18n-placeholder="form.login.username" required>
+                <input type="password" id="loginPassword" placeholder="Пароль" data-i18n-placeholder="form.login.password" required>
+                <button type="submit" data-i18n="auth.login">Войти</button>
             </form>
             <p>Нет аккаунта? <a href="register.html">Зарегистрироваться</a></p>
             <div id="loginMessage" class="auth-message"></div>
@@ -34,6 +34,8 @@
     <script src="js/preloader.js"></script>
     <script src="js/auth.js"></script>
     <script src="js/include.js"></script>
+    <script src="js/data-i18n.js"></script>
+    <script src="js/i18n.js"></script>
     <script src="js/services.js"></script>
     <script src="js/burger.js"></script>
     <script src="js/video-modal.js"></script>

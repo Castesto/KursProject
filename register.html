@@ -15,13 +15,13 @@
     <header></header>
     <main class="auth-main">
         <div class="auth-container">
-            <h2>Регистрация</h2>
+            <h2 data-i18n="register.title">Регистрация</h2>
             <form id="registerForm">
-                <input type="text" id="regFirstName" placeholder="Имя" required>
-                <input type="text" id="regLastName" placeholder="Фамилия" required>
-                <input type="text" id="regPatronymic" placeholder="Отчество" required>
-                <input type="email" id="regEmail" placeholder="Email" required>
-                <input type="tel" id="regPhone" placeholder="Номер телефона" required>
+                <input type="text" id="regFirstName" placeholder="Имя" data-i18n-placeholder="form.register.firstname" required>
+                <input type="text" id="regLastName" placeholder="Фамилия" data-i18n-placeholder="form.register.lastname" required>
+                <input type="text" id="regPatronymic" placeholder="Отчество" data-i18n-placeholder="form.register.patronymic" required>
+                <input type="email" id="regEmail" placeholder="Email" data-i18n-placeholder="form.register.email" required>
+                <input type="tel" id="regPhone" placeholder="Номер телефона" data-i18n-placeholder="form.register.phone" required>
                 <input type="text" id="regUsername" placeholder="Логин" required>
                 <input type="password" id="regPassword" placeholder="Пароль" required>
                 <input type="password" id="regConfirmPassword" placeholder="Подтвердите пароль" required>
@@ -36,6 +36,8 @@
     <script src="js/auth.js"></script>
     <script src="js/burger.js"></script>
     <script src="js/include.js"></script>
+    <script src="js/data-i18n.js"></script>
+    <script src="js/i18n.js"></script>
     <script src="js/video-modal.js"></script>
     <script src="js/notifications.js"></script>
 </body>
