@@ -50,14 +50,20 @@ h2 {
 }
 
 .rightHeader1 {
-    display: flex;
-    flex-direction: column;
-    flex: 266;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    align-content: start;
+    align-items: start;
+    justify-items: end;
+    gap: 12px;
+    flex: 0 0 520px;
 }
 
 .socialMedias {
-    flex: 1;
+    grid-column: 1 / -1;
+    flex: 0 0 auto;
     display: flex;
+    justify-content: flex-end;
     gap: 7px
 }
 
@@ -101,10 +107,12 @@ h2 {
 }
 
 .phoneNumber {
-    flex: 1.8;
+    grid-column: 1 / -1;
+    flex: 0 0 auto;
     display: flex;
     justify-content: flex-end;
     align-items: flex-start;
+    width: 100%;
 }
 
 .number {
@@ -641,13 +649,14 @@ footer section:nth-child(4) {
 }
 
 .rightHeader1 {
-    min-width: 200px; 
+    min-width: 520px;
 }
 
 .socialMedias {
     flex-wrap: wrap;      
     justify-content: flex-end;
     gap: 7px;
+    max-width: 260px;
 }
 
 .socialMedias > div {
@@ -741,6 +750,23 @@ footer section:nth-child(4) {
 }
 
 @media (max-width: 1600px) {
+    .rightHeader1 {
+        flex: 0 0 320px;
+        min-width: 320px;
+        grid-template-columns: minmax(0, 1fr) auto;
+    }
+
+    .rightHeader1 .theme-controls {
+        grid-column: 1;
+    }
+
+    .rightHeader1 .burger-btn {
+        grid-column: 2;
+        align-self: start;
+        left: auto;
+        margin: 0;
+    }
+
     .socialMedias {
         display:none;
     }

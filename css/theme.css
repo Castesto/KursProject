@@ -323,7 +323,7 @@ a {
     flex-wrap: wrap;
     justify-content: flex-end;
     gap: 8px;
-    margin-bottom: 12px;
+    margin: 0;
     position: relative;
     z-index: 20;
 }
