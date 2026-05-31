@@ -51,3 +51,7 @@ html, body {
 .menu .active {
     font-weight: bold;
 }
+
+.lang-switch {
+    background-color: var(--button-color);
+}

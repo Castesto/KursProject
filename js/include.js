@@ -199,4 +199,9 @@ document.addEventListener('DOMContentLoaded', async function () {
     if(typeof window.removePreloader === 'function') window.removePreloader();
 });
 
+// When locale changes, ensure auth UI is reapplied (after i18n translates the page)
+window.addEventListener && window.addEventListener('localechange', () => {
+    try { if (typeof updateAuthUI === 'function') updateAuthUI(); } catch(e) {}
+});
+
 
