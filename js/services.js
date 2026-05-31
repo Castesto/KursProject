@@ -12,14 +12,20 @@ function renderServices(filterText = '') {
     if (!container) return;
     const lowerFilter = filterText.toLowerCase();
     const filtered = allServices.filter(service => 
-        service.title.toLowerCase().includes(lowerFilter) || 
-        (service.description && service.description.toLowerCase().includes(lowerFilter))
+        (service.title && service.title.toLowerCase().includes(lowerFilter)) || 
+        (service.description && service.description.toLowerCase().includes(lowerFilter)) ||
+        (service.title_en && service.title_en.toLowerCase().includes(lowerFilter)) ||
+        (service.description_en && service.description_en.toLowerCase().includes(lowerFilter))
     );
-    container.innerHTML = filtered.map(service => `
+    const locale = (window.i18nData && window.i18nData.getLocale && window.i18nData.getLocale()) || 'ru';
+    container.innerHTML = filtered.map(service => {
+        const title = (locale === 'en' && service.title_en) ? service.title_en : service.title;
+        const img = service.img || '';
+        return `
         <div class="card">
             <div class="titleAndPhoto">
-                <div class="cardTitle">${service.title}</div>
-                <div class="cardPhoto"><img src="${service.img}" alt=""></div>
+                <div class="cardTitle">${title}</div>
+                <div class="cardPhoto"><img src="${img}" alt=""></div>
             </div>
             <div class="cardMore">
                 <a href="service-detail.html?id=${service.id}">
@@ -27,7 +33,7 @@ function renderServices(filterText = '') {
                 </a>
             </div>
         </div>
-    `).join('');
+    `}).join('');
 }
 
 async function initServices() {
@@ -40,5 +46,14 @@ async function initServices() {
         });
     }
 }
+
+// re-render services when locale changes so titles/descriptions update
+window.addEventListener('localechange', async () => {
+    const searchInput = document.getElementById('serviceSearch');
+    const filter = searchInput ? searchInput.value : '';
+    await getServices();
+    renderServices(filter);
+    if (window.i18nData && window.i18nData.applyTranslations) window.i18nData.applyTranslations(document);
+});
 
 initServices();

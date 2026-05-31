@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // apply translations after includes load - debounced init
   let initScheduled = false;
   function scheduleInit(){
     if(initScheduled) return;
@@ -12,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function realInit(){
     if(!window.i18nData) return;
-    // create language switch if not exists inside header
     const header = document.querySelector('header');
     if(header){
       const existing = header.querySelector('.lang-switch');
@@ -31,20 +29,16 @@ document.addEventListener('DOMContentLoaded', () => {
           window.i18nData.setLocale(next);
           btn.textContent = next === 'ru' ? 'EN' : 'RU';
         });
-        // try to append near auth-top
         const authTop = header.querySelector('#authTopBlock') || header;
         try{ authTop.appendChild(btn); }catch(e){ /* ignore */ }
       }
     }
-    // apply translations once for the document
     try{ window.i18nData.applyTranslations(document); }catch(e){console.error('i18n apply error', e)}
   }
 
-  // initial attempts
   scheduleInit();
   setTimeout(scheduleInit, 300);
 
-  // watch for header insertion but disconnect as soon as header is found and init run
   (function watchForHeader(){
     if(document.querySelector('header')){
       scheduleInit();
