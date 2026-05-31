@@ -160,7 +160,11 @@ html[data-accessibility="on"] .photoAndInfoName {
 }
 
 html[data-images="off"] img,
-html[data-images="off"] video,
+html[data-images="off"] video {
+    display: none !important;
+}
+
+html[data-images="off"] [style*="background-image"],
 html[data-images="off"] .photoCenter,
 html[data-images="off"] .departmentMap,
 html[data-images="off"] .play,
@@ -168,7 +172,7 @@ html[data-images="off"] .telegram,
 html[data-images="off"] .viber,
 html[data-images="off"] .avito,
 html[data-images="off"] .gmail {
-    visibility: hidden !important;
+    background-image: none !important;
 }
 
 body,

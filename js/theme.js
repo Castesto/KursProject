@@ -159,8 +159,9 @@
         imageToggle.type = 'checkbox';
         imageToggle.id = 'themeImagesToggle';
         imageToggle.addEventListener('change', () => {
+            const shouldHideImages = imageToggle.checked;
             setSetting('accessibility', true);
-            setSetting('images', !imageToggle.checked);
+            setSetting('images', !shouldHideImages);
         });
         imageLabel.appendChild(imageToggle);
         imageLabel.appendChild(document.createTextNode('Отключить изображения'));
