@@ -753,23 +753,24 @@ footer section:nth-child(4) {
     
 }
 
-@media (max-width: 1600px) {
+@media (max-width: 1700px) {
     .rightHeader1 {
         flex: 0 0 320px;
         min-width: 320px;
         grid-template-columns: minmax(0, 1fr) auto;
+        align-items: start;
     }
 
     .rightHeader1 .theme-controls {
         grid-column: 1;
+        justify-self: end;
     }
 
 
     .rightHeader1 .burger-btn {
         grid-column: 2;
         align-self: start;
-        left: auto;
-        margin: 0;
+        justify-self: end;
     }
 
     .socialMedias {

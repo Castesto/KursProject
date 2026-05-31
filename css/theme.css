@@ -404,10 +404,9 @@ a {
     margin: 0;
 }
 
-@media (max-width: 1600px) {
+@media (max-width: 1700px) {
     .theme-controls {
         justify-content: flex-end;
-        margin-top: 4px;
     }
 }
 

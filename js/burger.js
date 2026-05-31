@@ -11,6 +11,7 @@ function openBurgerMenu() {
     if (!burger || !menu || !overlay) return;
 
     burger.classList.add('active');
+    burger.setAttribute('aria-expanded', 'true');
     menu.classList.add('active');
     overlay.classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -21,6 +22,7 @@ function closeBurgerMenu() {
     if (!burger || !menu || !overlay) return;
 
     burger.classList.remove('active');
+    burger.setAttribute('aria-expanded', 'false');
     menu.classList.remove('active');
     overlay.classList.remove('active');
     document.body.style.overflow = '';
