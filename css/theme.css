@@ -313,6 +313,30 @@ a {
     background-color: rgba(0, 0, 0, 0.65) !important;
 }
 
+html[data-theme="dark"] .number {
+    background-color: var(--theme-card-bg) !important;
+}
+
+html[data-theme="dark"] .socialMedias > div:hover {
+    background-color: var(--theme-focus) !important;
+    border-color: var(--theme-focus) !important;
+}
+
+html[data-theme="dark"] .socialMedias{
+    filter: invert(100%);
+}
+
+html[data-theme="dark"] .mobile-social > div {
+    background-color: white;
+    border-color: var(--theme-border) !important;
+}
+
+.mobile-social > div:hover {
+    filter: invert(100%);
+    border-color: var(--theme-focus) !important;
+}
+
+
 :focus-visible {
     outline: 3px solid var(--theme-focus);
     outline-offset: 3px;
