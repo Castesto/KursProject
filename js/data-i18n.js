@@ -59,7 +59,15 @@
             'form.register.lastname': 'Фамилия',
             'form.register.patronymic': 'Отчество',
             'form.register.email': 'Email',
-            'form.register.phone': 'Номер телефона'
+            'form.register.phone': 'Номер телефона',
+            'logo.firstLogo': 'ВЕТЕРИНАРНЫЙ',
+            'logo.secondLogo': 'ЦЕНТР',
+            'achievements.years': '7 ЛЕТ',
+            'achievements.pets': '>500',
+            'achievements.rate': '90%',
+            'achievements.care': 'Заботимся о здоровье животных',
+            'achievements.healed': 'Всего вылеченных питомцев',
+            'achievements.recommend': 'Клиентов рекомендуют нас'
         },
         en: {
             'nav.profile': 'Profile',
@@ -120,7 +128,15 @@
             'form.register.lastname': 'Last name',
             'form.register.patronymic': 'Patronymic',
             'form.register.email': 'Email',
-            'form.register.phone': 'Phone number'
+            'form.register.phone': 'Phone number',
+            'logo.firstLogo': 'VETERINARY',
+            'logo.secondLogo': 'CENTER',
+            'achievements.years': '7 YEAR',
+            'achievements.pets': '>500',
+            'achievements.rate': '90%',
+            'achievements.care': 'We care about animal health',
+            'achievements.healed': 'Total treated pets',
+            'achievements.recommend': 'Clients recommend us'
         }
     };
 
