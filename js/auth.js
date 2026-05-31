@@ -10,8 +10,16 @@ function setCurrentUser(user) {
     else localStorage.removeItem('currentUser');
 }
 
+async function fetchJson(url, options) {
+    const response = await fetch(url, options);
+    if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+    }
+    return response.json();
+}
+
 async function register(firstName, lastName, patronymic, email, phone, username, password) {
-    const users = await fetch(`${API_URL}/users`).then(r => r.json());
+    const users = await fetchJson(`${API_URL}/users`);
     if (users.find(u => u.username === username)) {
         return { success: false, message: 'Пользователь с таким логином уже существует' };
     }
@@ -39,8 +47,9 @@ async function register(firstName, lastName, patronymic, email, phone, username,
 }
 
 async function login(username, password) {
-    const users = await fetch(`${API_URL}/users`).then(r => r.json());
-    const user = users.find(u => u.username === username && u.password === password);
+    const query = new URLSearchParams({ username, password });
+    const users = await fetchJson(`${API_URL}/users?${query.toString()}`);
+    const user = users[0];
     if (!user) {
         return { success: false, message: 'Неверный логин или пароль' };
     }
@@ -84,26 +93,44 @@ function updateAuthUI() {
 
 function initAuthPages() {
     const loginForm = document.getElementById('loginForm');
-    if (loginForm) {
+    if (loginForm && !loginForm.dataset.authReady) {
+        loginForm.dataset.authReady = 'true';
         loginForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const username = document.getElementById('loginUsername').value.trim();
             const password = document.getElementById('loginPassword').value.trim();
-            const res = await login(username, password);
             const msgDiv = document.getElementById('loginMessage');
-            if (res.success) {
-                msgDiv.style.color = 'green';
-                msgDiv.textContent = 'Успешно! Перенаправление...';
-                setTimeout(() => { window.location.href = 'index.html'; }, 1000);
-            } else {
+            const submitButton = loginForm.querySelector('button[type="submit"]');
+
+            if (submitButton) submitButton.disabled = true;
+            if (msgDiv) {
+                msgDiv.style.color = '';
+                msgDiv.textContent = 'Проверяем данные...';
+            }
+
+            try {
+                const res = await login(username, password);
+                if (res.success) {
+                    msgDiv.style.color = 'green';
+                    msgDiv.textContent = 'Успешно! Перенаправление...';
+                    setTimeout(() => { window.location.href = 'index.html'; }, 1000);
+                } else {
+                    msgDiv.style.color = 'red';
+                    msgDiv.textContent = res.message;
+                }
+            } catch (err) {
+                console.error('Login error:', err);
                 msgDiv.style.color = 'red';
-                msgDiv.textContent = res.message;
+                msgDiv.textContent = 'Не удалось подключиться к json-server. Проверьте, что он запущен на http://localhost:3000.';
+            } finally {
+                if (submitButton) submitButton.disabled = false;
             }
         });
     }
 
     const regForm = document.getElementById('registerForm');
-    if (regForm) {
+    if (regForm && !regForm.dataset.authReady) {
+        regForm.dataset.authReady = 'true';
         regForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const firstName = document.getElementById('regFirstName').value.trim();
@@ -121,14 +148,20 @@ function initAuthPages() {
                 msgDiv.textContent = 'Пароли не совпадают';
                 return;
             }
-            const res = await register(firstName, lastName, patronymic, email, phone, username, password);
-            if (res.success) {
-                msgDiv.style.color = 'green';
-                msgDiv.textContent = 'Регистрация успешна! Теперь войдите.';
-                setTimeout(() => { window.location.href = 'login.html'; }, 1500);
-            } else {
+            try {
+                const res = await register(firstName, lastName, patronymic, email, phone, username, password);
+                if (res.success) {
+                    msgDiv.style.color = 'green';
+                    msgDiv.textContent = 'Регистрация успешна! Теперь войдите.';
+                    setTimeout(() => { window.location.href = 'login.html'; }, 1500);
+                } else {
+                    msgDiv.style.color = 'red';
+                    msgDiv.textContent = res.message;
+                }
+            } catch (err) {
+                console.error('Register error:', err);
                 msgDiv.style.color = 'red';
-                msgDiv.textContent = res.message;
+                msgDiv.textContent = 'Не удалось подключиться к json-server. Проверьте, что он запущен на http://localhost:3000.';
             }
         });
     }
@@ -183,6 +216,8 @@ function updateAuthUI() {
     }
 }
 
-if (window.location.pathname.includes('login.html') || window.location.pathname.includes('register.html')) {
+if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initAuthPages);
+} else {
+    initAuthPages();
 }
