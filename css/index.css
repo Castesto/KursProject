@@ -656,6 +656,14 @@ footer section:nth-child(4) {
     height: 59px;
 }
 
+.socialMedias > div a {
+    cursor: pointer;
+}
+
+.cart-icon > a {
+    cursor: pointer;
+}
+
 .phoneNumber {
     flex-wrap: wrap;
     justify-content: flex-end;
