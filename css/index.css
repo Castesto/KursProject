@@ -712,6 +712,10 @@ footer section:nth-child(4) {
     cursor: pointer;
 }
 
+.theme-controls > button {
+    min-width: 200px;
+}
+
 
 @media (max-width: 1200px) {
     .socialMedias > div {
@@ -759,6 +763,7 @@ footer section:nth-child(4) {
     .rightHeader1 .theme-controls {
         grid-column: 1;
     }
+
 
     .rightHeader1 .burger-btn {
         grid-column: 2;

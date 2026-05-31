@@ -192,14 +192,14 @@ main {
     background-color: var(--theme-bg) !important;
 }
 
-.header2,
+/* .header2,
 footer,
 .departments,
 .history,
 .services,
 .specialists {
     background-color: var(--theme-section-bg);
-}
+} */
 
 .buttonMakeAppo,
 .centerButton,
