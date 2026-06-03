@@ -47,9 +47,13 @@ async function register(firstName, lastName, patronymic, email, phone, username,
 }
 
 async function login(username, password) {
-    const query = new URLSearchParams({ username, password });
-    const users = await fetchJson(`${API_URL}/users?${query.toString()}`);
-    const user = users[0];
+    const users = await fetchJson(`${API_URL}/users`);
+    const normalizedUsername = String(username).trim();
+    const normalizedPassword = String(password).trim();
+    const user = users.find(u => (
+        String(u.username || '').trim() === normalizedUsername &&
+        String(u.password || '').trim() === normalizedPassword
+    ));
     if (!user) {
         return { success: false, message: 'Неверный логин или пароль' };
     }
