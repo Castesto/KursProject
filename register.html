@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,17 +13,23 @@
     <title>Регистрация</title>
     <link rel="stylesheet" href="css/theme.css">
 </head>
+
 <body>
     <header></header>
     <main class="auth-main">
         <div class="auth-container">
             <h2 data-i18n="register.title">Регистрация</h2>
             <form id="registerForm">
-                <input type="text" id="regFirstName" placeholder="Имя" data-i18n-placeholder="form.register.firstname" required>
-                <input type="text" id="regLastName" placeholder="Фамилия" data-i18n-placeholder="form.register.lastname" required>
-                <input type="text" id="regPatronymic" placeholder="Отчество" data-i18n-placeholder="form.register.patronymic" required>
-                <input type="email" id="regEmail" placeholder="Email" data-i18n-placeholder="form.register.email" required>
-                <input type="tel" id="regPhone" placeholder="Номер телефона" data-i18n-placeholder="form.register.phone" required>
+                <input type="text" id="regFirstName" placeholder="Имя" data-i18n-placeholder="form.register.firstname"
+                    required>
+                <input type="text" id="regLastName" placeholder="Фамилия" data-i18n-placeholder="form.register.lastname"
+                    required>
+                <input type="text" id="regPatronymic" placeholder="Отчество"
+                    data-i18n-placeholder="form.register.patronymic" required>
+                <input type="email" id="regEmail" placeholder="Email" data-i18n-placeholder="form.register.email"
+                    required>
+                <input type="tel" title="Номер должен быть формата +37529XXXXXXX или +37533XXXXXXX"
+                    pattern="\+375(29|33)\d{7}" id="numberInput" name="phoneNumber" placeholder="Телефон" required>
                 <input type="text" id="regUsername" placeholder="Логин" required>
                 <input type="password" id="regPassword" placeholder="Пароль" required>
                 <input type="password" id="regConfirmPassword" placeholder="Подтвердите пароль" required>
@@ -43,4 +50,5 @@
     <script src="js/notifications.js"></script>
     <script src="js/theme.js"></script>
 </body>
+
 </html>
