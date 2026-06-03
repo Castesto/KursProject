@@ -1,193 +1,86 @@
-document.addEventListener('DOMContentLoaded', async function () {
-    function normalizeInsertedLinks(root){
-        try{
-            const anchors = root.querySelectorAll('a');
-            anchors.forEach(a => {
-                const href = a.getAttribute('href');
-                if(!href) return;
-                const skip = href.startsWith('http') || href.startsWith('/') || href.startsWith('#') || href.startsWith('mailto:') || href.includes('://') || href.startsWith('viber:');
-                if(!skip){
-                    // make root-relative to avoid resolving relative to components folder
-                    const newHref = href.startsWith('./') ? '/' + href.slice(2) : '/' + href;
-                    a.setAttribute('href', newHref);
-                }
-            });
-            // also normalize img src that accidentally point to relative paths starting without /
-            const imgs = root.querySelectorAll('img');
-            imgs.forEach(img => {
-                const src = img.getAttribute('src');
-                if(!src) return;
-                if(!src.startsWith('/') && !src.startsWith('http')){
-                    img.setAttribute('src', '/' + src);
-                }
-            });
-        }catch(e){
-            console.error('normalizeInsertedLinks error', e);
-        }
-    }
+function normalizeInsertedLinks(root) {
     try {
-        const headerResponse = await fetch('components/header.html');
-        const headerHtml = await headerResponse.text();
-    document.querySelector('header').innerHTML = headerHtml;
-    normalizeInsertedLinks(document.querySelector('header'));
-    if(typeof window.removePreloader === 'function') window.removePreloader();
+        const anchors = root.querySelectorAll('a');
+        anchors.forEach(a => {
+            const href = a.getAttribute('href');
+            if (!href) return;
 
-        const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-        const menuLinks = document.querySelectorAll('.menu a');
-        menuLinks.forEach(link => {
-            const href = link.getAttribute('href');
-            if (href === currentPath) {
-                link.parentElement.classList.add('active');
-            }
-        });
-    } catch (err) {
-        console.error('Ошибка загрузки шапки:', err);
-    }
+            const skip = href.startsWith('http') ||
+                href.startsWith('/') ||
+                href.startsWith('#') ||
+                href.startsWith('mailto:') ||
+                href.includes('://') ||
+                href.startsWith('viber:');
 
-    try {
-        const footerResponse = await fetch('components/footer.html');
-        const footerHtml = await footerResponse.text();
-    document.querySelector('footer').innerHTML = footerHtml;
-    normalizeInsertedLinks(document.querySelector('footer'));
-    if(typeof window.removePreloader === 'function') window.removePreloader();
-    } catch (err) {
-        console.error('Ошибка загрузки подвала:', err);
-    }
-});
-
-document.addEventListener('DOMContentLoaded', async function () {
-    try {
-        const headerResponse = await fetch('components/header.html');
-        const headerHtml = await headerResponse.text();
-    document.querySelector('header').innerHTML = headerHtml;
-    normalizeInsertedLinks(document.querySelector('header'));
-
-        const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-        const menuLinks = document.querySelectorAll('.menu a');
-        menuLinks.forEach(link => {
-            const href = link.getAttribute('href');
-            if (href === currentPath) {
-                link.parentElement.classList.add('active');
+            if (!skip) {
+                const newHref = href.startsWith('./') ? '/' + href.slice(2) : '/' + href;
+                a.setAttribute('href', newHref);
             }
         });
 
-        if (typeof updateAuthUI === 'function') {
-            updateAuthUI();
-        }
-    } catch (err) {
-        console.error('Ошибка загрузки шапки:', err);
+        const imgs = root.querySelectorAll('img');
+        imgs.forEach(img => {
+            const src = img.getAttribute('src');
+            if (!src) return;
+            if (!src.startsWith('/') && !src.startsWith('http')) {
+                img.setAttribute('src', '/' + src);
+            }
+        });
+    } catch (e) {
+        console.error('normalizeInsertedLinks error', e);
     }
-
-    try {
-        const footerResponse = await fetch('components/footer.html');
-        const footerHtml = await footerResponse.text();
-    document.querySelector('footer').innerHTML = footerHtml;
-    normalizeInsertedLinks(document.querySelector('footer'));
-    if(typeof window.removePreloader === 'function') window.removePreloader();
-    } catch (err) {
-        console.error('Ошибка загрузки подвала:', err);
-    }
-});
-
-if (typeof updateAuthUI === 'function') {
-    updateAuthUI();
 }
 
-const appointmentBtn = document.querySelector('.buttonMakeAppo');
-if (appointmentBtn) {
-    appointmentBtn.addEventListener('click', (e) => {
+function setActiveMenuLink() {
+    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+    const menuLinks = document.querySelectorAll('.menu a');
+
+    menuLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        const linkPath = href ? href.split('/').pop() : '';
+        if (linkPath === currentPath) {
+            link.parentElement.classList.add('active');
+        }
+    });
+}
+
+function initAppointmentButton() {
+    const appointmentBtn = document.querySelector('.buttonMakeAppo');
+    if (!appointmentBtn) return;
+
+    const newBtn = appointmentBtn.cloneNode(true);
+    appointmentBtn.parentNode.replaceChild(newBtn, appointmentBtn);
+    newBtn.addEventListener('click', () => {
         window.location.href = 'appointment.html';
     });
 }
 
-document.addEventListener('DOMContentLoaded', async function () {
-    try {
-        const headerResponse = await fetch('components/header.html');
-        const headerHtml = await headerResponse.text();
-    document.querySelector('header').innerHTML = headerHtml;
-    normalizeInsertedLinks(document.querySelector('header'));
-    if(typeof window.removePreloader === 'function') window.removePreloader();
-
-        const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-        const menuLinks = document.querySelectorAll('.menu a');
-        menuLinks.forEach(link => {
-            const href = link.getAttribute('href');
-            if (href === currentPath) {
-                link.parentElement.classList.add('active');
-            }
-        });
-
-        if (typeof updateAuthUI === 'function') updateAuthUI();
-
-        const appointmentBtn = document.querySelector('.buttonMakeAppo');
-        if (appointmentBtn) {
-            appointmentBtn.addEventListener('click', () => {
-                window.location.href = 'appointment.html';
-            });
-        }
-    } catch (err) {
-        console.error('Ошибка загрузки шапки:', err);
-    }
+async function includeLayout() {
+    const headerElement = document.querySelector('header');
+    const footerElement = document.querySelector('footer');
 
     try {
-        const footerResponse = await fetch('components/footer.html');
-        const footerHtml = await footerResponse.text();
-    document.querySelector('footer').innerHTML = footerHtml;
-    normalizeInsertedLinks(document.querySelector('footer'));
-    if(typeof window.removePreloader === 'function') window.removePreloader();
-    } catch (err) {
-        console.error('Ошибка загрузки подвала:', err);
-    }
-});
-
-document.addEventListener('DOMContentLoaded', async function () {
-    try {
-    const headerResponse = await fetch('components/header.html');
-    const headerHtml = await headerResponse.text();
-        const headerElement = document.querySelector('header');
-            if (headerElement) {
-            headerElement.innerHTML = headerHtml;
+        if (headerElement) {
+            const headerResponse = await fetch('components/header.html');
+            headerElement.innerHTML = await headerResponse.text();
             normalizeInsertedLinks(headerElement);
-            if(typeof window.removePreloader === 'function') window.removePreloader();
-        }
+            setActiveMenuLink();
 
-        const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-        const menuLinks = document.querySelectorAll('.menu a');
-        menuLinks.forEach(link => {
-            const href = link.getAttribute('href');
-            if (href === currentPath) {
-                link.parentElement.classList.add('active');
-            }
-        });
+            if (typeof updateAuthUI === 'function') updateAuthUI();
+            if (typeof window.initBurger === 'function') window.initBurger();
+            initAppointmentButton();
 
-        if (typeof updateAuthUI === 'function') {
-            updateAuthUI();
-        }
-
-        if (typeof window.initBurger === 'function') {
-            window.initBurger();
-        }
-
-        const appointmentBtn = document.querySelector('.buttonMakeAppo');
-        if (appointmentBtn) {
-            const newBtn = appointmentBtn.cloneNode(true);
-            appointmentBtn.parentNode.replaceChild(newBtn, appointmentBtn);
-            newBtn.addEventListener('click', () => {
-                window.location.href = 'appointment.html';
-            });
+            window.dispatchEvent(new CustomEvent('headerloaded'));
         }
     } catch (err) {
         console.error('Ошибка загрузки шапки:', err);
     }
 
     try {
-        const footerResponse = await fetch('components/footer.html');
-        const footerHtml = await footerResponse.text();
-        const footerElement = document.querySelector('footer');
         if (footerElement) {
-            footerElement.innerHTML = footerHtml;
+            const footerResponse = await fetch('components/footer.html');
+            footerElement.innerHTML = await footerResponse.text();
             normalizeInsertedLinks(footerElement);
-            if(typeof window.removePreloader === 'function') window.removePreloader();
         }
     } catch (err) {
         console.error('Ошибка загрузки подвала:', err);
@@ -196,12 +89,15 @@ document.addEventListener('DOMContentLoaded', async function () {
     if (typeof window.initVideoModal === 'function') {
         window.initVideoModal();
     }
-    if(typeof window.removePreloader === 'function') window.removePreloader();
-});
+    if (typeof window.removePreloader === 'function') {
+        window.removePreloader();
+    }
+}
 
-// When locale changes, ensure auth UI is reapplied (after i18n translates the page)
+document.addEventListener('DOMContentLoaded', includeLayout);
+
 window.addEventListener && window.addEventListener('localechange', () => {
-    try { if (typeof updateAuthUI === 'function') updateAuthUI(); } catch(e) {}
+    try {
+        if (typeof updateAuthUI === 'function') updateAuthUI();
+    } catch (e) {}
 });
-
-

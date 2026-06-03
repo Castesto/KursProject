@@ -11,6 +11,7 @@ async function loadProfile() {
             const freshUser = await resp.json();
             setCurrentUser(freshUser);
             user = freshUser;
+            if (typeof updateAuthUI === 'function') updateAuthUI();
         }
     } catch (err) {
         console.warn('Не удалось обновить данные', err);

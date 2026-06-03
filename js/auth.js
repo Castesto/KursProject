@@ -200,7 +200,8 @@ function updateAuthUI() {
             mobileAuth.innerHTML = '';
             mobileAuth.appendChild(clone);
         } else if (originalAuthButtons) {
-            mobileAuth.innerHTML = originalAuthButtons.cloneNode(true);
+            mobileAuth.innerHTML = '';
+            mobileAuth.appendChild(originalAuthButtons.cloneNode(true));
         }
     }
 
