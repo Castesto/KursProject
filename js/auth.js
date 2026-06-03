@@ -141,7 +141,8 @@ function initAuthPages() {
             const lastName = document.getElementById('regLastName').value.trim();
             const patronymic = document.getElementById('regPatronymic').value.trim();
             const email = document.getElementById('regEmail').value.trim();
-            const phone = document.getElementById('regPhone').value.trim();
+            const phoneInput = document.getElementById('regPhone') || document.getElementById('numberInput');
+            const phone = phoneInput ? phoneInput.value.trim() : '';
             const username = document.getElementById('regUsername').value.trim();
             const password = document.getElementById('regPassword').value.trim();
             const confirmPassword = document.getElementById('regConfirmPassword').value.trim();

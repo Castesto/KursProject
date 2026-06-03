@@ -67,7 +67,8 @@
             'achievements.rate': '90%',
             'achievements.care': 'Заботимся о здоровье животных',
             'achievements.healed': 'Всего вылеченных питомцев',
-            'achievements.recommend': 'Клиентов рекомендуют нас'
+            'achievements.recommend': 'Клиентов рекомендуют нас',
+            'cart.checkout': 'Оформить'
         },
         en: {
             'nav.profile': 'Profile',
@@ -136,7 +137,9 @@
             'achievements.rate': '90%',
             'achievements.care': 'We care about animal health',
             'achievements.healed': 'Total treated pets',
-            'achievements.recommend': 'Clients recommend us'
+            'achievements.recommend': 'Clients recommend us',
+            'cart.checkout': 'Buy'
+
         }
     };
 

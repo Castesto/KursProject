@@ -34,7 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
     try{ window.i18nData.applyTranslations(document); }catch(e){console.error('i18n apply error', e)}
-    // reapply auth UI after translations to ensure buttons/userinfo visibility is correct
     try{ if(typeof updateAuthUI === 'function') updateAuthUI(); }catch(e){}
   }
 
