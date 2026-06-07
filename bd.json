@@ -1,0 +1,177 @@
+{
+  "services": [
+    {
+      "id": "1",
+      "title": "Приём и консультация",
+      "title_en": "Examination & Consultation",
+      "img": "images/dogs-labrador 1.png",
+      "animalImg": "images/dog-consult.jpg",
+      "description": "Первичный осмотр, сбор анамнеза, назначение диагностики и лечения. Консультация опытного ветеринара.",
+      "description_en": "Initial examination, history taking, diagnostics and treatment planning. Consultation with an experienced veterinarian.",
+      "price": 1500,
+      "ref": "consultation.html"
+    },
+    {
+      "id": "2",
+      "title": "Вакцинация",
+      "title_en": "Vaccination",
+      "img": "images/vactinaniton.png",
+      "animalImg": "images/cat-vaccine.jpg",
+      "description": "Комплексная вакцинация кошек и собак отечественными и импортными препаратами. Выдача ветпаспорта.",
+      "description_en": "Comprehensive vaccination for cats and dogs using domestic and imported vaccines. Issuance of veterinary passport.",
+      "price": 1200,
+      "ref": "vantination.html"
+    },
+    {
+      "id": "3",
+      "title": "Хирургия",
+      "title_en": "Surgery",
+      "img": "images/hirurgia.png",
+      "animalImg": "images/surgery.jpg",
+      "description": "Плановые и экстренные операции: удаление новообразований, грыж, инородных тел. Послеоперационный уход.",
+      "description_en": "Planned and emergency surgeries: tumor removals, hernia repairs, foreign body extractions. Postoperative care.",
+      "price": 5000,
+      "ref": "surgery.html"
+    },
+    {
+      "id": "4",
+      "title": "Кастрация и стерилизация",
+      "title_en": "Castration & Sterilization",
+      "img": "images/castration.png",
+      "animalImg": "images/castration-animal.jpg",
+      "description": "Безопасная операция под наркозом, контроль состояния до и после вмешательства.",
+      "description_en": "Safe anesthesia procedures with pre- and postoperative monitoring.",
+      "price": 3500,
+      "ref": "castration.html"
+    },
+    {
+      "id": "5",
+      "title": "Стационар",
+      "title_en": "Inpatient Care",
+      "img": "images/stationar.png",
+      "animalImg": "images/hospital.jpg",
+      "description": "Круглосуточное наблюдение, капельницы, уколы, уход за тяжелыми пациентами.",
+      "description_en": "24/7 monitoring, IV therapy, injections and care for critical patients.",
+      "price": 2000,
+      "ref": "stacionar"
+    }
+  ],
+  "users": [
+    {
+      "id": "3",
+      "username": "user",
+      "password": "12345678",
+      "firstName": "User",
+      "lastName": "user",
+      "patronymic": "user",
+      "email": "miste@mail.ru",
+      "phone": "+375336055562",
+      "isAdmin": false,
+      "purchaseHistory": []
+    },
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "admin123",
+      "firstName": "Админ",
+      "lastName": "Админов",
+      "patronymic": "Админович",
+      "email": "admin@vet.ru",
+      "phone": "+79990000000",
+      "isAdmin": true,
+      "purchaseHistory": []
+    },
+    {
+      "username": "Castesto",
+      "password": "123",
+      "firstName": "Виктор",
+      "lastName": "Такой",
+      "patronymic": "Сякой",
+      "email": "dsfj@gmail.com",
+      "phone": "+3374340990",
+      "isAdmin": false,
+      "purchaseHistory": [],
+      "id": "2"
+    },
+    {
+      "username": "Test",
+      "password": "12345678",
+      "firstName": "Иван",
+      "lastName": "Иванов",
+      "patronymic": "Иванович",
+      "email": "mail@mail.ru",
+      "phone": "+375335055562",
+      "isAdmin": false,
+      "purchaseHistory": [],
+      "id": "xw1CCVYzevE"
+    }
+  ],
+  "checkups": [
+    {
+      "id": "c1",
+      "title": "Профилактика сахарного диабета",
+      "title_en": "Diabetes Prevention",
+      "description": "Программа позволит обследовать питомца и выявить заболевание, либо риск возникновения сахарного диабета",
+      "description_en": "A program to examine the pet and detect the disease or the risk of developing diabetes mellitus.",
+      "price": 7400,
+      "img": "images/хомяк.png"
+    },
+    {
+      "id": "c2",
+      "title": "Мочевыделительаня система",
+      "title_en": "Urinary System",
+      "description": "",
+      "description_en": "Comprehensive examination of the urinary system to identify infections, stones or other issues.",
+      "price": 12900,
+      "img": "images/мочевыделительная система.png"
+    },
+    {
+      "id": "c3",
+      "title": "Быстрая диагностика",
+      "title_en": "Rapid Diagnostics",
+      "description": "Проверка основных проблем здоровья",
+      "description_en": "Screening for common health problems to provide quick assessment and recommendations.",
+      "price": 5500,
+      "img": "images/хомяк.png"
+    }
+  ],
+  "doctors": [
+    {
+      "id": "d1",
+      "name": "Шалимов Денис Андреевич",
+      "position": "Заведующий терапевтическим отделением, ветеринарный врач-терапевт, дерматолог",
+      "photo": "images/Шалимов Денис 1.png"
+    },
+    {
+      "id": "d2",
+      "name": "Иванова Анна Петровна",
+      "position": "Ветеринарный врач-хирург",
+      "photo": "images/person.png"
+    },
+    {
+      "id": "d3",
+      "name": "Жанна Ведье Олеговна",
+      "position": "Ветеринарный врач-хирург",
+      "photo": "images/person.png"
+    },
+    {
+      "id": "d4",
+      "name": "Марина Черч Олеговна",
+      "position": "Ветеринарный врач-терапевт",
+      "photo": "images/person.png"
+    }
+  ],
+  "appointments": [
+    {
+      "firstName": "User",
+      "lastName": "user",
+      "phone": "+375336055562",
+      "dateTime": "2026-11-22T12:45",
+      "doctorId": "d1",
+      "createdAt": "2026-06-03T17:02:53.319Z",
+      "userId": "3",
+      "id": "ewC01Dnnf1I"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
